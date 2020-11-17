@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <script>
+        function media() 
+		{
+            var N1 = document.getElementById("N1").value;
+            var N2 = document.getElementById("N2").value;
+			var N3 = document.getElementById("N3").value;
+		    var n1= parseInt (N1);
+            var n2= parseInt (N2);
+            var n3= parseInt (N3);
+			var nf= ((n1*2) + (n2*3) + (n3*5))/10;
+			document.getElementById("texto").innerHTML = nf;
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="n1" placeholder="nota primeira avaliacao">
+    <input type="number" id="n2" placeholder="nota segunda avaliacao">
+	<input type="number" id="n3" placeholder="nota terceita avaliacao">
+	
+    <button onclick="javascript:media()"> Calcular media ponderada </button>
+	<h3 id="texto"></h3>
+</body>
+</html>

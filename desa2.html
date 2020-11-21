@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<script>
+    function numpar(x,y)
+{
+    var a=[];
+    for(i=x;i<=y;i++)
+    {
+        if(i%2==0)
+        {
+            a.push(i);
+        }
+    }
+    return a.toString();
+}
+
+function r()
+{
+    var n1=document.getElementById("entrada1").value;
+    var n2=document.getElementById("entrada2").value;
+    var resultado=" numpar(n1,n2);
+    alert(resultado);
+}
+</script>
+<body>
+   <h1> Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:</h1>
+   <form>
+        <input type="text" id="entrada1" placeholder="x:">
+        <input type="text" id="entrada2" placeholder="y:">
+        <button onclick="r();">Exibir</button>
+    </form>
+</body>
+</html>

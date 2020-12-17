@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <script>
+        function carro() 
+		{
+            var N1 = document.getElementById("n1").value;
+            
+            var n1= parseInt (N1);
+			var cf= n1+((28/100)*n1)+((45/100)*n1);
+			alert (cf);
+        }
+    </script>
+</head>
+<body>
+    <h1>O custo de um carro novo ao consumidor é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). Supondo que o percentual do distribuidor seja de 28% e os impostos de 45%, escrever um algoritmo para ler o custo de fábrica de um carro, calcular e escrever o custo final ao consumidor. Calcular custo final de um carro: </h1>
+    <input type="number" id="n1" placeholder="custo de fabrica">
+    
+	
+    <button onclick="javascript:carro()"> Calcular custo total</button>
+	<h3 id="texto"></h3>
+</body>
+</html>

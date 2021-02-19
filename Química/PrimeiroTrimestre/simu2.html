@@ -22,8 +22,7 @@ function estequio()
 		var resu=  qnt / vol; 
 		
 		resultado = "22,4 L ---> 1 mol <br>" + qnt + "L ---> X mol <br>" + qnt + "*1 =" + qnt + "<br> 22,4*X = 22,4X <br> X = " + 
-		qnt + "/22,4 <br> X = " + resu + "mol <br> " + qnt + " litros de 0,5 O2 = "+ resu + " mol de 0,5 O2 <br>"+
-		"1 mol de 0,5 O2 ---> 1 mol de H2O <br> <b> Então </b> <br><b>" + resu + " mol de 0,5 O2 ---> " + resu + " mol de H2O</b>";
+		qnt + "/22,4 <br> X = " + resu + "mol <br><b> Então, </b>  " + qnt + " litros de O2 --- "+ resu + " mol de H2O <br>";
 		document.getElementById("conta").innerHTML = resultado;
 	}
 
@@ -32,8 +31,7 @@ function estequio()
 		var resu=  qnt / vol; 
 		
 		resultado = "22,4 L ---> 1 mol <br>" + qnt + "L ---> X mol <br>" + qnt + "*1 =" + qnt + "<br> 22,4*X = 22,4X <br> X = " + 
-		qnt + "/22,4 <br> X = " + resu + "mol <br> " + qnt + " litros de 0,5 O2 = "+ resu + " mol de 0,5 O2 <br>"+ "<b> 1 H2 = 2 H </b><br> "+
-		"1 mol de 0,5 O2 ---> 1 mol de H2 <br> <b> Então </b> <br><b>" + resu + " mol de 0,5 O2 ---> " + resu * 2+ " mol de H</b>";
+		qnt + "/22,4 <br> X = " + resu + "mol <br><b> Então, </b>  " + qnt + " litros de O2 --- "+ resu + " mol de H2 <br>";
 		document.getElementById("conta").innerHTML = resultado;
 	}
 
@@ -41,9 +39,8 @@ function estequio()
 	{
 		var resu=  qnt * molP; 
 		
-		resultado = " 22,4 L ---> 1 mol <br>"  + "22,4 litros de 0,5 O2 = 1 mol de 0,5 O2 <br>"+
-		"1 mol de H2O ---> 1 mol de 0,5 O2 <br>"+ resu +" mol de H2O ---> "+resu*vol+" litros de 0,5 O2 <br> <b> Então  <br>" +
-		 resu + " mol de H2O ---> " + resu + " mol de 0,5 O2</b>";
+		resultado = " 1 mol ---> 22,4 L <br>"+ qnt +
+		" mol de H2O ---> x litros de O2 <br>x = "+ resu*vol +"<br><b>Então, </b>"+ resu +" mol de H2O ---> "+resu*vol+" litros de O2 ";
 		document.getElementById("conta").innerHTML = resultado;
 	}
 
@@ -51,9 +48,8 @@ function estequio()
 	{
 		var resu=  qnt * molP; 
 		
-		resultado = "22,4 L ---> 1 mol <br>"  + "22,4 litros de 0,5 O2 = 1 mol de 0,5 O2 <br>"+
-		"1 mol de H2 ---> 1 mol de 0,5 O2 <br>"+ resu +" mol de H2 ---> "+resu*vol+" litros de 0,5 O2 ---> "+resu+" mol de 0,5 O2<br><b> 1 H2 = 2 H </b><br><b> Então  <br>" +
-		 resu*2 + " mol de H ---> " + resu + " mol de 0,5 O2</b>";
+		resultado = " 1 mol ---> 22,4 L <br>"+ qnt +
+		" mol de H2 ---> x litros de O2 <br>x = "+ resu*vol +"<br><b>Então, </b>"+ resu +" mol de H2 ---> "+resu*vol+" litros de O2 ";
 		document.getElementById("conta").innerHTML = resultado;
 	}
 }
@@ -70,10 +66,10 @@ function estequio()
 <div class="margem"> 
 	
 		<select name = "reac" id='reac' >
-			<option value="1">  0,5 O2(v) - 1 H2O(mol)</option>
-			<option value="2">  0,5 O2(v) - 1 H2(mol) </option>
-			<option value="3"> H2O(mol) - 22,4L 0,5 O2(v) </option>
-			<option value="4"> H2(mol) -  22,4L 0,5 O2(v) </option>
+			<option value="1">  O2(v) -  H2O(mol)</option>
+			<option value="2">  O2(v) -  H2(mol) </option>
+			<option value="3"> H2O(mol) - O2(v) </option>
+			<option value="4"> H2(mol) -  O2(v) </option>
 		</select>
 		
 		<input id = "valor" 
@@ -86,7 +82,6 @@ function estequio()
 
 		<p> Guilherme Rosa e Luíza Rotina</p>
 	<footer>
-			<a class="retorno" href="../Química.html">Voltar</a>
 		</footer>
 	
 </div>

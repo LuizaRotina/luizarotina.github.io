@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<head>
+	<title>Laboratório ECMAScript6 (2) </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h2>Laboratório ECMAScript6 (2) - Luiza Rotina </h2>
+	<section id="exercicio1">
+	<h3>Calculadora</h3>
+	<p> Monte uma calculadora que receba dois valores numéricos e um operador aritmético. Sua calculadora deve realizar as seguintes operações: +, -, /, *. </p>
+	<p>Números:</p>
+	<input type="number" name="numero1" id="numero1">
+	<input type="number" name="numero2" id="numero2">
+	<br>
+	<p>Operação:</p>
+	<input type="radio" name="opcao" value="soma" id="soma">Soma <br>
+	<input type="radio" name="opcao" value="sub" id="sub">Subtração <br>
+	<input type="radio" name="opcao" value="mult" id="mult">Multiplicação <br>
+	<input type="radio" name="opcao" value="div" id="div">Divisão <br><br>
+	<button onclick="calculadora()" value="calculadora" >Resultado</button>
+	</section>
+
+	<section id="exercicio2">
+	<h3>Cálculo do Imposto de Renda</h3>
+	<p> Faça um programa que realize o cálculo do imposto de renda de acordo com o salário mensal </p>
+	<p>Salário mensal:</p>
+	<input type="number" name="salario" id="salario">
+	<br><br>
+	<button onclick="imposto()" value="calculadora" >Calcular Imposto</button>
+	</section>
+
+	<section id="exercicio3">
+	<h3>Verificação de triângulos</h3>
+	<p> O triângulo é uma figura que possui três lados, e dependendo dos valores dos lados sua classificação pode ser equilátero, isósceles e escaleno dependendo se a quantidade de lados iguais forem respectivamente três, dois e nenhum.Então, se os lados forem 2, 2, 2o triângulo será equilateral. Contudo, nem toda junção de três tamanhos formam um triângulo válido, por exemplo, os lados 0, 0, 0. </p>
+	<p>Lado X:</p>
+	<input type="number" name="lado1" id="lado1">
+	<br>
+	<p>Lado Y:</p>
+	<input type="number" name="lado2" id="lado2">
+	<br>
+	<p>Lado Z:</p>
+	<input type="number" name="lado3" id="lado3">
+	<br><br>
+	<button onclick="triangulo()" >Verificar triângulo</button>
+	</section>
+
+	<section id="exercicio4">
+	<h3>Criptografia por Rotação</h3>
+	<p> A Cifra de Rotação é uma técnica de criptografia que faz uma transposição de um caractere por outro. </p>
+	<p>Caracteres para serem criptografados:</p>
+	<input type="text" name="carac" id="carac">
+	<br>
+	<p>Número de rotações:</p>
+	<input type="number" name="rotacao" id="rotacao">
+	<br><br>
+	<button onclick="criptografia()" value="calcular" >Criptografar</button>
+	</section>
+	<br><br>
+
+</body>
+<script type="text/javascript">
+
+	function opcao(){
+		var radio = document.getElementsByName('opcao');
+  		for(let opcao of radio){
+  		 if(opcao.checked){
+    		return opcao.value;
+   		}
+ 	} 
+  	return null;
+ 	}
+
+ 	function addTxt (texto, id){
+ 		
+        var node = document.createElement("p");                
+        var textnode = document.createTextNode(texto);          
+	    node.appendChild(textnode);                           
+        document.getElementById(id).appendChild(node);
+    }
+
+ 	function calculadora(){
+ 		let op = opcao();
+ 		let num1 = parseFloat(document.getElementById('numero1').value);
+ 		let num2 = parseFloat( document.getElementById('numero2').value);
+ 		let resultado = 0;
+ 		switch(op){
+ 			case 'soma': resultado = "Resultado = " + (num1 + num2);
+ 			break;
+ 			case 'sub': resultado = "Resultado = " + (num1 - num2);
+ 			break;
+ 			case 'mult': resultado = "Resultado = " + (num1 * num2);
+ 			break;
+ 			case 'div': resultado = "Resultado = " + (num1 / num2);
+ 			break;
+ 			default: resultado = "Nenhuma operação foi selecionada";
+ 			}
+
+ 		let sec = document.getElementsByTagName('section')[0];
+ 		let p  = sec.getElementsByTagName('p')[2];
+ 		if(p != undefined){
+			sec.removeChild(p);
+			addTxt(resultado, "exercicio1");
+		}
+		else
+ 			addTxt(resultado, "exercicio1");
+
+ 	}
+
+ 	function imposto(){
+ 		let salario = document.getElementById('salario').value;
+ 		let resultado = '';		
+ 		if(salario <= 1903.98){
+ 			resultado = "Você não precisa pagar imposto de renda.";
+
+ 		}
+ 		else if(salario >= 1903.99 && salario <= 2826.65){
+ 			let result = ((salario * 0.075) - 142.8).toFixed(2);
+ 			resultado = "Sua taxa de imposto de renda é R$"+result;
+
+ 		}
+ 		else if(salario >= 2826.66 && salario <= 3751.05){
+ 			let result = ((salario * 0.15) - 354.80).toFixed(2);
+ 			resultado = "Sua taxa de imposto de renda é R$"+result;
+
+ 		}
+ 		else if(salario >= 3751.06 && salario <= 4664.68){
+ 			let result = ((salario * 0.225) - 636.13).toFixed(2);
+ 			resultado = "Sua taxa de imposto de renda é R$"+result;
+
+ 		}
+ 		else{
+ 			let result = ((salario * 0.275) - 869.36).toFixed(2);
+ 			resultado = "Sua taxa de imposto de renda é R$"+result;
+ 		}
+ 		let sec = document.getElementsByTagName('section')[1];
+ 		let p  = sec.getElementsByTagName('p')[1];
+ 		if(p != undefined){
+			sec.removeChild(p);
+			addTxt(resultado, "exercicio2");
+		}
+		else
+ 			addTxt(resultado, "exercicio2");
+ 	}
+
+ 	function validaTriangulo (l1, l2, l3){
+ 		if(l1 < (l2 + l3)){
+ 			if(l2 < (l1 + l3)){
+ 				if (l3 < (l2 + l1)){
+ 					return true;
+ 				}
+ 			}
+ 		}
+ 		return false;
+ 	}
+
+ 	function triangulo(){
+ 		let a = parseFloat(document.getElementById('lado1').value);
+ 		let b = parseFloat(document.getElementById('lado2').value);
+ 		let c = parseFloat(document.getElementById('lado3').value);
+ 		let tri = validaTriangulo(a,b,c);
+ 		let resultado = '';
+ 		if(tri){
+ 			if( a == b && a== c && b == c){
+ 				resultado = "O triângulo é equilátero";
+ 			}
+ 			else if( a == b || a== c || b == c ){
+ 				resultado = "O triângulo é isósceles";
+ 			}
+ 			else{ 
+ 			resultado = "O triângulo é escaleno";
+ 			}
+ 		}
+ 		else
+ 			{resultado = "O triângulo não pode ser formado";}
+
+ 		let sec = document.getElementsByTagName('section')[2];
+ 		let p  = sec.getElementsByTagName('p')[3];
+ 		if(p != undefined){
+			sec.removeChild(p);
+			addTxt(resultado, "exercicio3");
+		}
+		else
+ 			addTxt(resultado, "exercicio3");
+
+
+ 		
+	}
+
+	function criptografia(){
+		//let letras = /[a-z]/;
+		let letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+		let rotacao = parseInt(document.getElementById('rotacao').value);
+			let vezes = rotacao / 26;
+			let y = 0;
+			for (let i = 0; i < vezes; i++) {
+				for(let j = 0; j < 26; j++){
+				letras[y+26] = letras[y];
+				y++;}
+			}
+		let carac = document.getElementById('carac').value;
+		let caracteres = carac.split('');
+		let cript = new Array();
+		caracteres.forEach(function(letra){
+			let pos = letras.indexOf(letra);
+			cript.push(letras[pos+rotacao]);
+		})
+		let criptografado = cript.join('');
+		let sec = document.getElementsByTagName('section')[3];
+ 		let p  = sec.getElementsByTagName('p')[2];
+ 		if(p != undefined){
+			sec.removeChild(p);
+			addTxt("Caracteres criptografados:" +criptografado, "exercicio4");
+		}
+		else
+ 			addTxt("Caracteres criptografados: " +criptografado, "exercicio4");
+	}
+
+</script>
